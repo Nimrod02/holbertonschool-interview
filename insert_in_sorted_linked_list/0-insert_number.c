@@ -1,4 +1,4 @@
-#include "list.h"
+#include "lists.h"
 
 
 /**
@@ -29,6 +29,6 @@ listint_t *insert_node(listint_t **head, int number)
 			current = current->next;
 		current->next = new;
 	}
-
+	
 	return (new);
 }
