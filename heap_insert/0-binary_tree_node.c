@@ -1,30 +1,22 @@
 #include "binary_trees.h"
 
 /**
- * heap_insert - inserts a value into a Max Binary Heap
- * @root: double pointer to the root node of the Heap
- * @value: value to store in the node to be inserted
- * Return: pointer to the inserted node, or NULL on failure
+ * binary_tree_node - creates a binary tree node
+ * @parent: pointer to the parent node of the node to create
+ * @value: value to put in the new node
+ *
+ * Return: pointer to the new node, or NULL on failure
  */
-heap_t *heap_insert(heap_t **root, int value)
+binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-	heap_t *new_node = NULL;
+	binary_tree_t *node = NULL;
 
-	if (!root)
+	node = malloc(sizeof(*node));
+	if (!node)
 		return (NULL);
-
-	new_node = binary_tree_node(*root, value);
-	if (!new_node)
-		return (NULL);
-
-	if (!*root)
-	{
-		*root = new_node;
-		return (new_node);
-	}
-
-	insert_node(*root, new_node);
-	swap_nodes(new_node);
-
-	return (new_node);
+	node->n = value;
+	node->parent = parent;
+	node->left = NULL;
+	node->right = NULL;
+	return (node);
 }
