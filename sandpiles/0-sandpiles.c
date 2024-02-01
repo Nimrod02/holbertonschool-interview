@@ -61,7 +61,6 @@ void topple_sandpiles(int grid[3][3])
         for (j = 0; j < 3; ++j)
             temp_grid[i][j] = grid[i][j];
 
-    // Topple the sandpiles
     for (i = 0; i < 3; ++i) {
         for (j = 0; j < 3; ++j) {
             if (temp_grid[i][j] > 3) {
