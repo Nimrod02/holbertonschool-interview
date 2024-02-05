@@ -1,46 +1,64 @@
 #include "lists.h"
 
 /**
+ * reverse - reverses a linked list
+ * @head: pointer to head of list
+ * Return: pointer to head of reversed list
+ */
+listint_t *reverse(listint_t *head)
+{
+    listint_t *prev = NULL, *next = NULL;
+
+    while (head != NULL)
+    {
+        next = head->next;
+        head->next = prev;
+        prev = head;
+        head = next;
+    }
+
+    return (prev);
+}
+
+/**
  * is_palindrome - checks if a singly linked list is a palindrome
  * @head: pointer to head of list
  * Return: 1 if palindrome, 0 if not
  */
 int is_palindrome(listint_t **head)
 {
-    listint_t *current;
-    int index, jndex, len = 0;
-    int *arr;
+    listint_t *slow = *head, *fast = *head, *second_half, *prev_slow = *head;
 
-    if (*head == NULL)
+    if (*head == NULL || (*head)->next == NULL)
         return (1);
 
-    current = *head;
-    while (current != NULL)
+    while (fast != NULL && fast->next != NULL)
     {
-        current = current->next;
-        len++;
+        fast = fast->next->next;
+        prev_slow = slow;
+        slow = slow->next;
     }
 
-    arr = malloc(len * sizeof(int));
-    if (arr == NULL)
-        return (0);
+    if (fast != NULL)
+        slow = slow->next;
 
-    current = *head;
-    for (index = 0; current != NULL; index++)
-    {
-        arr[index] = current->n;
-        current = current->next;
-    }
+    second_half = slow;
+    prev_slow->next = NULL;
+    second_half = reverse(second_half);
 
-    for (index = 0, jndex = len - 1; index < len / 2; index++, jndex--)
+    while (*head != NULL && second_half != NULL)
     {
-        if (arr[index] != arr[jndex])
+        if ((*head)->n == second_half->n)
         {
-            free(arr);
-            return (0);
+            *head = (*head)->next;
+            second_half = second_half->next;
         }
+        else
+            return (0);
     }
 
-    free(arr);
-    return (1);
+    if (*head == NULL && second_half == NULL)
+        return (1);
+
+    return (0);
 }
