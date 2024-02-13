@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/usr/bin/python3
 
 import sys
+
 
 def print_stats(total_size, status_codes):
     print("Total file size:", total_size)
     for status_code in sorted(status_codes.keys()):
         if status_codes[status_code] > 0:
             print(status_code, ":", status_codes[status_code])
+
 
 def parse_line(line):
     """
@@ -16,7 +18,8 @@ def parse_line(line):
         line (str): The log line to parse.
 
     Returns:
-        tuple: A tuple containing the IP address (str), status code (int), and file size (int).
+        tuple: Tuple containing the IP address (str),
+        status code (int), file size (int).
                If the line cannot be parsed, None is returned for all values.
     """
     try:
@@ -25,12 +28,14 @@ def parse_line(line):
         status_code = int(parts[-2])
         file_size = int(parts[-1])
         return ip_address, status_code, file_size
-    except:
+    except Exception:
         return None, None, None
+
 
 def compute_stats():
     total_size = 0
-    status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+    status_codes = {200: 0, 301: 0, 400: 0,
+                    401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
     line_count = 0
 
     try:
@@ -47,5 +52,6 @@ def compute_stats():
 
     except KeyboardInterrupt:
         print_stats(total_size, status_codes)
+
 
 compute_stats()
