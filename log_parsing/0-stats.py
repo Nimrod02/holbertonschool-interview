@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+module 0-stats.py
+"""
 import sys
 
 
