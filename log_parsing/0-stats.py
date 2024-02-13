@@ -1,59 +1,49 @@
 #!/usr/bin/python3
-"""
-module 0-stats.py
-"""
 import sys
 
 
-def print_stats(total_size, status_codes):
-    print("Total file size:", total_size)
-    for status_code in sorted(status_codes.keys()):
-        if status_codes[status_code] > 0:
-            print(status_code, ":", status_codes[status_code])
+"""Script to get stats from a request"""
+
+i = 0
+my_dict = {}
+status_available = ['200', '301', '400', '401', '403', '404', '405', '500']
+total_size = 0
 
 
-def parse_line(line):
-    """
-    Parse a log line and extract the IP address, status code, and file size.
-
-    Args:
-        line (str): The log line to parse.
-
-    Returns:
-        tuple: Tuple containing the IP address (str),
-        status code (int), file size (int).
-               If the line cannot be parsed, None is returned for all values.
-    """
-    try:
-        parts = line.split()
-        ip_address = parts[0]
-        status_code = int(parts[-2])
-        file_size = int(parts[-1])
-        return ip_address, status_code, file_size
-    except Exception:
-        return None, None, None
+def print_stats(total_size, my_dict):
+    print("File size: {}".format(total_size))
+    for key in sorted(my_dict):
+        print("{}: {}".format(key, my_dict[key]))
 
 
-def compute_stats():
-    total_size = 0
-    status_codes = {200: 0, 301: 0, 400: 0,
-                    401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-    line_count = 0
+try:
+    for line in sys.stdin:
+        line_split = line.split()
 
-    try:
-        for line in sys.stdin:
-            ip_address, status_code, file_size = parse_line(line)
-            if ip_address is not None:
-                total_size += file_size
-                if status_code in status_codes:
-                    status_codes[status_code] += 1
-            line_count += 1
+        try:
+            file_size = line_split[-1]
+            total_size += int(file_size)
+        except (IndexError, ValueError):
+            pass
 
-            if line_count % 10 == 0:
-                print_stats(total_size, status_codes)
+        try:
+            status_code = line_split[-2]
+            if status_code in status_available:
+                if status_code in my_dict:
+                    my_dict[status_code] += 1
+                else:
+                    my_dict[status_code] = 1
+        except (IndexError, ValueError):
+            pass
 
-    except KeyboardInterrupt:
-        print_stats(total_size, status_codes)
+        i += 1
 
+        if i == 10:
+            print_stats(total_size, my_dict)
+            i = 0
 
-compute_stats()
+    print_stats(total_size, my_dict)
+
+except KeyboardInterrupt:
+    print_stats(total_size, my_dict)
+    raise
