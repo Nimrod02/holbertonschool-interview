@@ -1,7 +1,7 @@
 #include "palindrome.h"
 
 /*
- * is_palindrome - checks whether or not a given unsigned integer is a palindrome
+ * is_palindrome - check whether or not
  * @n: number to be checked
  *
  * Return: 1 if n is a palindrome, and 0 otherwise
