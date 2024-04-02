@@ -1,6 +1,7 @@
 # N Queens Project
 
-![N Queens Project](https://chat.openai.com/g/g-SXL2lIFlb-readme-creator/c/3072edad-4067-4e01-90d7-60be0861809c "Project Image")
+![N Queens Project]( ![DALL·E 2024-04-02 16 33 28 - Create a 16_9 image featuring the title 'N Queens Project' prominently displayed in the center  The background should be thematic of a chessboard, sub](https://github.com/Nimrod02/holbertonschool-interview/assets/86027619/37d69bc7-1fa6-4182-96eb-7443b0a0c31c)
+"Project Image")
 
 ## 📝 Description
 The N Queens Project is a sophisticated software challenge that tasks participants with placing N queens on an N×N chessboard in such a manner that no two queens threaten each other. This means no two queens can share the same row, column, or diagonal. This project combines algorithms, optimization, and computational thinking to solve a problem that scales in complexity with the size of the board.
