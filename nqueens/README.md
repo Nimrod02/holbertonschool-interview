@@ -1,6 +1,6 @@
 # N Queens Project
 
-![N Queens Project]( ![DALL·E 2024-04-02 16 33 28 - Create a 16_9 image featuring the title 'N Queens Project' prominently displayed in the center  The background should be thematic of a chessboard, sub](https://github.com/Nimrod02/holbertonschool-interview/assets/86027619/37d69bc7-1fa6-4182-96eb-7443b0a0c31c)
+![DALL·E 2024-04-02 16 33 28 - Create a 16_9 image featuring the title 'N Queens Project' prominently displayed in the center  The background should be thematic of a chessboard, sub](https://github.com/Nimrod02/holbertonschool-interview/assets/86027619/37d69bc7-1fa6-4182-96eb-7443b0a0c31c)
 "Project Image")
 
 ## 📝 Description
