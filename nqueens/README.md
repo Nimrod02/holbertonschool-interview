@@ -22,7 +22,6 @@ The N Queens Project is a sophisticated software challenge that tasks participan
 ## 🚀 Installation and Configuration
 1. Clone the project repository: `git clone https://github.com/user/NQueensProject.git`
 2. Navigate to the project directory: `cd NQueensProject`
-3. Install required Python packages: `pip install -r requirements.txt`
 
 ## 💡 Usage
 - To solve the N Queens problem for a board of size N: `./0-nqueens.py N`
