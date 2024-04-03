@@ -10,16 +10,13 @@ The N Queens Project is a sophisticated software challenge that tasks participan
 - [Backtracking Algorithms](https://www.geeksforgeeks.org/backtracking-algorithms/)
 - [Optimization Techniques in Computer Science](https://www.sciencedirect.com/topics/computer-science/optimization-technique)
 - [Chess Programming - N Queens](https://www.chessprogramming.org/N_Queens)
-- [Artificial Intelligence Strategies](https://www.coursera.org/learn/artificial-intelligence)
 
 ## 🛠️ Technologies and Tools Used
 - **Python**: Chosen for its simplicity and efficiency in algorithm development.
-- **NumPy**: Utilized for its array-handling capabilities, facilitating board state management.
 - **Git and GitHub**: For version control and project management.
 
 ## 📋 Prerequisites
 - **Python** (version 3.8 or later)
-- **NumPy** (latest version recommended)
 - Git
 
 ## 🚀 Installation and Configuration
@@ -28,8 +25,8 @@ The N Queens Project is a sophisticated software challenge that tasks participan
 3. Install required Python packages: `pip install -r requirements.txt`
 
 ## 💡 Usage
-- To solve the N Queens problem for a board of size N: `python n_queens_solver.py --size=N`
-- Example: `python n_queens_solver.py --size=8`
+- To solve the N Queens problem for a board of size N: `./0-nqueens.py N`
+- Example: `./0-nqueens.py 8`
 
 ## ✨ Main Features
 1. **Dynamic Board Size**: The program can compute solutions for any board size, not just 8.
