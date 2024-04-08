@@ -1,6 +1,6 @@
 # Array to AVL 🌳
 
-![Array to AVL](https://example.com/path/to/image.png) <!-- Replace with the actual URL where the image will be hosted -->
+![DALL·E 2024-04-08 14 52 01 - Create a wide image that features a visually appealing and detailed representation of an AVL (Adelson-Velsky and Landis) binary tree  The tree should ](https://github.com/Nimrod02/holbertonschool-interview/assets/86027619/08163662-9eb7-4862-982e-b7044dadfd0b)
 
 ## 📝 Description
 The "Array to AVL" project is a sophisticated software solution designed to convert a simple array into a balanced AVL (Adelson-Velsky and Landis) binary tree. This transformation ensures that the tree remains balanced at all times, offering optimal search, insertion, and deletion times. Key features of this project include efficient memory management, the implementation of rotation operations for maintaining tree balance, and a user-friendly interface for visualizing the tree structure.
