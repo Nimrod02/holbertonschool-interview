@@ -1,6 +1,7 @@
-# Project Name: Linear Search in Skip List
+# Linear Search in Skip List
 
-![Project Image](link-to-project-image)
+![DALL·E 2024-04-17 10 27 53 - A digital illustration for a software project titled 'Linear Search in Skip List'  The image should be wide (1792x1024), featuring an abstract represe](https://github.com/Nimrod02/holbertonschool-interview/assets/86027619/31ea914b-8970-4d2e-878b-bce89997b465)
+
 
 ## 📝 Description
 This project implements a linear search algorithm within a skip list data structure, designed to optimize search operations by skipping through a subset of the elements. This method combines the simplicity of linear search with the efficiency of hierarchical indexing, offering an innovative approach to searching in ordered lists.
