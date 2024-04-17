@@ -32,7 +32,7 @@ def generate_skip_list_data():
 Continue with similar structure for other data involved in the project.
 
 ## 🚀 Installation and Configuration
-1. **Clone the Repository**: `git clone https://github.com/Arthur-Letrun/skip-list-search.git`
+1. **Clone the Repository**: `git clone https://github.com/nimrod02/skip-list-search.git`
 2. **Set up Environment**: Ensure Python is installed and set up a virtual environment if necessary.
 3. Continue with additional setup steps, including screenshots/videos if necessary to clarify instructions.
 
