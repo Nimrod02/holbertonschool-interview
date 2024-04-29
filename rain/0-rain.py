@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""module 0
+"""
+module 0 - rain
 """
 
 def rain(walls):
