@@ -3,6 +3,7 @@
 module 0 - rain
 """
 
+
 def rain(walls):
     """Calculate how much water will be retained after it rains"""
     if not walls:
