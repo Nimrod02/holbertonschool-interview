@@ -1,6 +1,6 @@
 # Project: Rain
 
-![Project Image](attachment://A_visually_engaging_and_relevant_image_for_a_softw.png)
+![Project Image](![DALL·E 2024-04-29 16 22 20 - A visually engaging and relevant image for a software project titled 'Project_ Rain'  The image should depict an abstract or conceptual representation](https://github.com/Nimrod02/holbertonschool-interview/assets/86027619/9ff9d082-cece-403b-9421-18227f95aa10))
 
 ## 📝 Description
 "Rain" is a software engineering project focused on solving a practical problem in computational geometry: calculating the amount of rainwater trapped between walls of different heights. This project simulates a rainwater trapping scenario using a list of non-negative integers to represent wall heights, where the width of each wall is 1 unit. It is especially useful for educational purposes in teaching algorithms related to array manipulation and optimization techniques.
