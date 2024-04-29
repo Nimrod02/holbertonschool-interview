@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+"""module 0
+"""
 
 def rain(walls):
     """Calculate how much water will be retained after it rains"""
