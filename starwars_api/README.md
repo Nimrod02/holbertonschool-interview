@@ -75,7 +75,6 @@ The Star Wars API is a comprehensive resource for retrieving data related to the
 | Number | Task                           | Description                                       |
 | ------ | ------------------------------ | ------------------------------------------------- |
 | 0      | **Initialize Project**         | Write a script that prints all characters of a Star Wars movie      |
-| ------ | ------------------------------ | ------------------------------------------------- |
 
 ## 📬 Contact
 - LinkedIn Profile: [Arthur Letrun](https://www.linkedin.com/in/arthur-letrun)
