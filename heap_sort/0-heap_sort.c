@@ -44,15 +44,17 @@ static void sift_down(int *array, size_t start, size_t end, size_t size)
  */
 void heap_sort(int *array, size_t size)
 {
+	int i;
+
 	if (array == NULL || size < 2)
 		return;
 
-	for (int i = size / 2 - 1; i >= 0; i--)
+	for (i = size / 2 - 1; i >= 0; i--)
 	{
 		sift_down(array, i, size - 1, size);
 	}
 
-	for (int i = size - 1; i > 0; i--)
+	for (i = size - 1; i > 0; i--)
 	{
 		int temp = array[0];
 
