@@ -34,16 +34,17 @@ void heapify(int arr[], int size, int i)
  *
  * Return: void
 */
-void heapSort(int arr[], int size)
+void heap_sort(int *array, size_t size)
 {
-	int i, temp;
+	    int i;
+    int temp;
     for (i = size / 2 - 1; i >= 0; i--)
-	heapify(arr, size, i);
+	heapify(array, size, i);
     for (i = size - 1; i > 0; i--)
     {
-	temp = arr[0];
-	arr[0] = arr[i];
-	arr[i] = temp;
-	heapify(arr, i, 0);
+	temp = array[0];
+	array[0] = array[i];
+	array[i] = temp;
+	heapify(array, i, 0);
     }
 }
