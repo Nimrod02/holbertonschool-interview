@@ -1,50 +1,64 @@
 #include "sort.h"
 
 /**
- * heapify - Heapifies a subtree
- * @arr: Array to be sorted
+ * sift_down - Repair the heap whose root element is at index 'start',
+ *             assuming the heaps rooted at its children are valid
+ * @array: Array to sort
+ * @start: Index of the root of the heap
+ * @end: Index of the last element in the heap
  * @size: Size of the array
- * @i: Index of the root of the subtree
- *
- * Return: void
-*/
-void heapify(int arr[], int size, int i)
+ */
+static void sift_down(int *array, size_t start, size_t end, size_t size)
 {
-    int largest = i;
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
-    int temp;
-    if (left < size && arr[left] > arr[largest])
-	largest = left;
-    if (right < size && arr[right] > arr[largest])
-	largest = right;
-    if (largest != i)
-    {
-	temp = arr[i];
-	arr[i] = arr[largest];
-	arr[largest] = temp;
-	heapify(arr, size, largest);
-    }
+	size_t root = start;
+
+	while ((2 * root) + 1 <= end)
+	{
+		size_t child = 2 * root + 1;
+		size_t swap = root;
+
+		if (array[swap] < array[child])
+			swap = child;
+		if (child + 1 <= end && array[swap] < array[child + 1])
+			swap = child + 1;
+		if (swap != root)
+		{
+			int temp = array[root];
+
+			array[root] = array[swap];
+			array[swap] = temp;
+			print_array(array, size);
+			root = swap;
+		}
+		else
+		{
+			return;
+		}
+	}
 }
 
 /**
- * headSort - Sorts an array using heap sort algorithm
- * @arr: Array to be sorted
+ * heap_sort - Sorts an array of integers in ascending order
+ * @array: Array to sort
  * @size: Size of the array
- *
- * Return: void
-*/
+ */
 void heap_sort(int *array, size_t size)
 {
-	    int i;
-    int temp;
-    for (i = size / 2 - 1; i >= 0; i--)
-	heapify(array, size, i);
-    for (i = size - 1; i > 0; i--)
-    {
-	temp = array[0];
-	array[0] = array[i];
-	array[i] = temp;
-	heapify(array, i, 0);
-    }
+	if (array == NULL || size < 2)
+		return;
+
+	for (int i = size / 2 - 1; i >= 0; i--)
+	{
+		sift_down(array, i, size - 1, size);
+	}
+
+	for (int i = size - 1; i > 0; i--)
+	{
+		int temp = array[0];
+
+		array[0] = array[i];
+		array[i] = temp;
+		print_array(array, size);
+		sift_down(array, 0, i - 1, size);
+	}
 }
