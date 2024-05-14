@@ -16,8 +16,8 @@ void print_array(int *array, size_t left, size_t right)
 		if (index > left)
 			printf(", ");
 		printf("%d", array[index]);
-		}
-		printf("\n");
+	}
+	printf("\n");
 }
 
 /**
@@ -34,9 +34,7 @@ int recursive_binary_search(int *array, size_t left, size_t right, int value)
 	size_t mid;
 
 	if (left > right)
-	{
 		return (-1);
-	}
 
 	print_array(array, left, right);
 
@@ -44,16 +42,19 @@ int recursive_binary_search(int *array, size_t left, size_t right, int value)
 
 	if (array[mid] == value)
 	{
-		return (mid);
-		}
+		int res;
+
+		if (left == right)
+			return (mid);
+
+		res = recursive_binary_search(array, left, mid, value);
+		return ((res != -1) ? res : mid);
+	}
+
 	else if (array[mid] > value)
-	{
 		return (recursive_binary_search(array, left, mid - 1, value));
-	}
 	else
-	{
 		return (recursive_binary_search(array, mid + 1, right, value));
-	}
 }
 
 /**
