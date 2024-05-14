@@ -1,4 +1,5 @@
 #include "search_algos.h"
+#include <stdio.h>
 
 /**
  * print_array - prints an array of integers
@@ -45,16 +46,19 @@ int recursive_binary_search(int *array, size_t left, size_t right, int value)
 		int res;
 
 		if (left == right)
-			return (mid);
+			return ((int)mid);
 
 		res = recursive_binary_search(array, left, mid, value);
-		return ((res != -1) ? res : mid);
+		return ((res != -1) ? res : (int)mid);
 	}
-
 	else if (array[mid] > value)
+	{
 		return (recursive_binary_search(array, left, mid - 1, value));
+	}
 	else
+	{
 		return (recursive_binary_search(array, mid + 1, right, value));
+	}
 }
 
 /**
