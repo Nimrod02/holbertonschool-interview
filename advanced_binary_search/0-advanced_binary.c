@@ -43,10 +43,9 @@ int recursive_binary_search(int *array, size_t left, size_t right, int value)
 
 	if (array[mid] == value)
 	{
-		if (left == mid || array[mid - 1] != value)
-			return (mid);
+		if (left == right || array[mid - 1] != value)
+			return ((int)mid);
 
-		/* Continue searching in the left subarray */
 		return (recursive_binary_search(array, left, mid, value));
 	}
 	else if (array[mid] > value)
