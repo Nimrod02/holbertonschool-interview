@@ -39,9 +39,12 @@ bt_node_queue_t *BTQueuePush(bt_node_queue_t **queue, binary_tree_t *node)
 */
 void BTQueuePop(bt_node_queue_t **queue)
 {
+	bt_node_queue_t *temp;
+
 	if (!queue || !*queue)
-		return ();
-	bt_node_queue_t *temp = *queue;
+		return;
+
+	temp = *queue;
 	*queue = (*queue)->next;
 	free(temp);
 }
@@ -54,31 +57,32 @@ void BTQueuePop(bt_node_queue_t **queue)
 */
 heap_t *lastInLevelOrder(heap_t *root)
 {
-	if (!root)
-	return (NULL);
-
 	bt_node_queue_t *queue = NULL;
+	heap_t *last = NULL;
+
+	if (!root)
+		return (NULL);
 
 	if (!BTQueuePush(&queue, (binary_tree_t *)root))
 		return (NULL);
-
-	heap_t *last = NULL;
 
 	while (queue)
 	{
 		heap_t *current = (heap_t *)queue->node;
 
 		if (current->left && !BTQueuePush(&queue, (binary_tree_t *)current->left))
-		break;
+			break;
 
 		if (current->right && !BTQueuePush(&queue, (binary_tree_t *)current->right))
 			break;
+
 		last = current;
 		BTQueuePop(&queue);
 	}
 
 	while (queue)
 		BTQueuePop(&queue);
+
 	return (last);
 }
 
@@ -91,16 +95,17 @@ void maxHeapSiftDown(heap_t *root)
 	while (root)
 	{
 		heap_t *largest = root;
+		int temp;
 
 		if (root->left && root->left->n > largest->n)
 			largest = root->left;
 		if (root->right && root->right->n > largest->n)
 			largest = root->right;
+
 		if (largest == root)
 			break;
 
-		int temp = root->n;
-
+		temp = root->n;
 		root->n = largest->n;
 		largest->n = temp;
 
@@ -115,12 +120,16 @@ void maxHeapSiftDown(heap_t *root)
 */
 int heap_extract(heap_t **root)
 {
+	heap_t *root_node;
+	heap_t *last;
+	int extracted_value;
+
 	if (!root || !*root)
 		return (0);
 
-	heap_t *root_node = *root;
-	int extracted_value = root_node->n;
-	heap_t *last = lastInLevelOrder(root_node);
+	root_node = *root;
+	extracted_value = root_node->n;
+	last = lastInLevelOrder(root_node);
 
 	if (!last)
 		return (0);
@@ -143,5 +152,6 @@ int heap_extract(heap_t **root)
 
 	if (*root)
 		maxHeapSiftDown(*root);
+
 	return (extracted_value);
 }
