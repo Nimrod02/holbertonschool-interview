@@ -23,6 +23,17 @@ struct binary_tree_s
 typedef struct binary_tree_s binary_tree_t;
 typedef struct binary_tree_s heap_t;
 
+/**
+ * struct bt_node_queue_s - Binary tree node queue
+ * @node: Pointer to a binary tree node
+ * @next: Pointer to the next element of the queue
+*/
+typedef struct bt_node_queue_s
+{
+    struct binary_tree_s *node;
+    struct bt_node_queue_s *next;
+} bt_node_queue_t;
+
 int heap_extract(heap_t **root);
 
 #endif /* HEAP_H */
