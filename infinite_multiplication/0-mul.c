@@ -1,5 +1,8 @@
 #include "holberton.h"
 
+void check_arguments(int argc, char **argv);
+void check_digits(char *str);
+void multiply_and_print_result(char *num1, char *num2);
 
 /**
  * main - multiplies two positive numbers
