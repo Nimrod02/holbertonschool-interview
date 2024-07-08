@@ -19,16 +19,20 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    coins.sort(reverse=True)
-    sum = 0
-    i = 0
-    counter = 0
-    num_coins = len(coins)
-    while sum < total and i < num_coins:
-        while coins[i] <= total - sum:
-            sum += coins[i]
-            counter += 1
-            if sum == total:
-                return counter
-        i += 1
-    return -1
+    newVal = total + 1
+    store = {0: 0}
+
+    for i in range(1, total + 1):
+        store[i] = newVal
+
+        for coin in coins:
+            current = i - coin
+            if current < 0:
+                continue
+
+            store[i] = min(store[current] + 1, store[i])
+
+    if store[total] == total + 1:
+        return -1
+
+    return store[total]
