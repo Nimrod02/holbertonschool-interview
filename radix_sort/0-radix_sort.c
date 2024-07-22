@@ -8,22 +8,18 @@
  */
 void radix_sort(int *array, size_t size)
 {
-	int i, j, k, m = 0, exp = 1;
-	int *tmp = NULL;
-	int max = 0;
-
-	if (!array || size < 2)
-		return;
+	int i, exp = 1, max = 0;
+	int *tmp;
 
 	tmp = malloc(sizeof(int) * size);
 
 	if (!tmp)
-		return (0);
+		return;
 
 	for (i = 0; i < (int)size; i++)
 	{
 		if (array[i] > max)
-		max = array[i];
+			max = array[i];
 	}
 
 	while (max / exp > 0)
