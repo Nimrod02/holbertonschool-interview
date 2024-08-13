@@ -36,6 +36,39 @@ int match_star(char *base, char *pattern)
 }
 
 /**
+ * globMatch - Recursive helper to _wildcmp, checks substrings in base and
+ *   pattern to see if the local base substring is a valid match to the local
+ *   pattern substring following the current wildcard, or if the current
+ *   wildcard should continue to skip ahead in the base string
+ *
+ * @base: current position in base string for comparison
+ * @pattern: current postion in pattern string to compare to - can contain the
+ *   special character `*`, which can represent any string (including an empty
+ *   string)
+ * @tested_indices: count of how many positions in the base and pattern
+ *   substrings have been evaluated, modified by reference
+ *
+ * Return: 1 if glob matches base after current wildcard, 0 if not or failure
+ */
+int globMatch(char *base, char *pattern, int *tested_indices)
+{
+	if (!base || !pattern || !tested_indices)
+		return (0);
+
+	(*tested_indices)++;
+
+	if (*base == *pattern)
+	{
+		if (*(pattern + 1) == '\0' || *(pattern + 1) == '*')
+			return (1);
+
+		return (globMatch(base + 1, pattern + 1, tested_indices));
+	}
+
+	return (0);
+}
+
+/**
  * _wildcmp - Recursive helper to wildcmp, compares two strings with wildcards
  * @base: current position in base string for comparison
  * @pattern: current position in pattern string
