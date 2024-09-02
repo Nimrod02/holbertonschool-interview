@@ -24,14 +24,16 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 
 	for (i = 0; i < s_len; i++)
 	{
-		memset(matched_word, 0, nb_words * sizeof(int)), pos = i;
+		memset(matched_word, 0, nb_words * sizeof(int));
+		pos = i;
 		for (j = 0; j < nb_words; j++)
 		{
 			for (k = 0; k < nb_words; k++)
 			{
 				if (!matched_word[k] && strncmp(words[k], s + pos, word_len) == 0)
 				{
-					matched_word[k] = 1, pos += word_len;
+					matched_word[k] = 1;
+					pos += word_len;
 					break;
 				}
 			}
@@ -41,7 +43,8 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 		if (j == nb_words)
 			temp[count++] = i;
 	}
-	free(matched_word), *n = count;
+	free(matched_word);
+	*n = count;
 	indices = malloc(count * sizeof(int));
 	if (!indices)
 		return (NULL);
